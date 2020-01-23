@@ -2,8 +2,6 @@ package com.iwdnb.blqs.core.visitor.springmvc;
 
 import java.util.*;
 
-import com.iwdnb.blqs.core.common.URL;
-import com.iwdnb.blqs.core.http.HttpHeaders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,9 +12,11 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.resolution.types.ResolvedReferenceType;
 import com.github.javaparser.symbolsolver.javaparsermodel.declarations.JavaParserClassDeclaration;
+import com.google.common.collect.Lists;
+import com.iwdnb.blqs.core.common.URL;
+import com.iwdnb.blqs.core.http.HttpHeaders;
 import com.iwdnb.blqs.core.http.HttpRequestMethod;
 import com.iwdnb.blqs.core.resolver.ast.Annotations;
-import com.google.common.collect.Lists;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -51,7 +51,7 @@ public class RequestMappings {
         ANNOTATION_METHOD.put(PUT_MAPPING, HttpRequestMethod.PUT);
         ANNOTATION_METHOD.put(PATCH_MAPPING, HttpRequestMethod.PATCH);
         ANNOTATION_METHOD.put(DELETE_MAPPING, HttpRequestMethod.DELETE);
-        ANNOTATION_METHOD.put(REQUEST_MAPPING, HttpRequestMethod.POST);
+        ANNOTATION_METHOD.put(REQUEST_MAPPING, HttpRequestMethod.GET);
     }
 
     public static final String                         REQUEST_METHOD_GET    = "RequestMethod.GET";
@@ -85,7 +85,7 @@ public class RequestMappings {
 
     HttpRequestMethod method;
     List<String>      path    = new ArrayList<>();
-    HttpHeaders headers = new HttpHeaders();
+    HttpHeaders       headers = new HttpHeaders();
 
     public static RequestMappings of(AnnotationExpr n) {
         if (!accept(n)) {
