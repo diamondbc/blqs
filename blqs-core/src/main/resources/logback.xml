@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- https://github.com/spring-projects/spring-boot/blob/v1.4.2.RELEASE/spring-boot/src/main/resources/org/springframework/boot/logging/logback/defaults.xml -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--定义了一个过滤器,在LEVEL之下的日志输出不会被打印出来-->
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <!--定义控制台输出格式-->
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
