@@ -77,7 +77,7 @@ public class Options {
 
     private Set<String>         ignores                  = Sets.newHashSet();
 
-    private String              yapiSynDataUrl           = "http://yapi.gdapi.net/api/open/import_data";
+    private String              yapiSynDataUrl;
 
     private String              yapiToken;
 

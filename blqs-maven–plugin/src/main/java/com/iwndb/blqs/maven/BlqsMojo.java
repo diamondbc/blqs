@@ -191,6 +191,9 @@ public class BlqsMojo extends AbstractMojo {
         if (yapiToken != null) {
             options.yapiToken(yapiToken);
         }
+        if (yapiSynDataUrl == null) {
+            log.error("yapiSynDataUrl is null.");
+        }
         if (yapiSynDataUrl != null) {
             options.yapiSynDataUrl(yapiSynDataUrl);
         }
