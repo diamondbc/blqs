@@ -33,3 +33,8 @@ out
 # ignore log files
 *.log
 
+#build
+build/
+nbbuild/
+dist/
+nbdist/
