@@ -115,6 +115,10 @@ public class BlqsMojo extends AbstractMojo {
     }
 
     private void build() {
+        if (yapiSynDataUrl == null) {
+            log.error("yapiSynDataUrl is null.");
+            return;
+        }
         Options options = new Options();
         // 加载依赖资源jar包
         if (incluedArtifact != null) {
@@ -190,9 +194,6 @@ public class BlqsMojo extends AbstractMojo {
         }
         if (yapiToken != null) {
             options.yapiToken(yapiToken);
-        }
-        if (yapiSynDataUrl == null) {
-            log.error("yapiSynDataUrl is null.");
         }
         if (yapiSynDataUrl != null) {
             options.yapiSynDataUrl(yapiSynDataUrl);
