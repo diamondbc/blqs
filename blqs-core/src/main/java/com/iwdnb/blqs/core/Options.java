@@ -233,5 +233,6 @@ public class Options {
 
     public void ignoreParameterClasses(String ignoreParameterClasses) {
         IGNORE_TYPES = Sets.newHashSet(ignoreParameterClasses.split(","));
+        IGNORE_TYPES.add("org.springframework.web.servlet.ModelAndView");
     }
 }

@@ -29,54 +29,54 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Parameters {
 
-    public static final String      REQUEST_BODY     = "RequestBody";
-    public static final String      REQUEST_PARAM    = "RequestParam";
-    public static final String      REQUEST_HEADER   = "RequestHeader";
-    public static final String      PATH_VARIABLE    = "PathVariable";
-    public static final String      JPARAM_BODY      = "JParam";
-    public static final String      SPRING_JSON_BODY = "SpringJsonParam";
+    public static final String REQUEST_BODY = "RequestBody";
+    public static final String REQUEST_PARAM = "RequestParam";
+    public static final String REQUEST_HEADER = "RequestHeader";
+    public static final String PATH_VARIABLE = "PathVariable";
+    public static final String JPARAM_BODY = "JParam";
+    public static final String SPRING_JSON_BODY = "SpringJsonParam";
 
-    public static final String      MVC_MODEL        = "MODEL";
+    public static final String MVC_MODEL = "MODEL";
 
-    public static final Set<String> MVCS             = Sets.newHashSet(MVC_MODEL);
+    public static final Set<String> MVCS = Sets.newHashSet(MVC_MODEL);
     /**
      * 是否基本类型(包括string)
      */
-    boolean                         primitive;
+    boolean primitive;
     /**
      * 是否路径字段
      */
-    boolean                         pathVariable;
+    boolean pathVariable;
     /**
      * 是否请求体接收字段
      */
-    boolean                         requestBody;
+    boolean requestBody;
     /**
      * 是否是header
      */
-    boolean                         header;
+    boolean header;
     /**
      * 是否文件字段
      */
-    boolean                         file;
+    boolean file;
     /**
      * 是否spring mvc 保留字段
      */
-    boolean                         mvc;
+    boolean mvc;
     /**
      * 参数忽略解析
      */
-    boolean                         ignore;
+    boolean ignore;
 
-    String                          name;
-    String                          type;
-    Object                          value;
-    String                          description;
-    List<Element>                   elements         = new ArrayList<>();
+    String name;
+    String type;
+    Object value;
+    String description;
+    List<Element> elements = new ArrayList<>();
     /**
      * body的参数类型
      */
-    private Types                   types;
+    private Types types;
 
     public static Parameters of(Parameter param) {
         Parameters parameters = new Parameters();
@@ -105,8 +105,8 @@ public class Parameters {
 
     private void resolvePath(Parameter param) {
         Element element = new Element(param.getNameAsString(), param.getTypeAsString(), "",
-                                      String.valueOf(Defaults.get(param.getTypeAsString())),
-                                      Comments.getCommentFromMethod(param));
+                String.valueOf(Defaults.get(param.getTypeAsString())),
+                Comments.getCommentFromMethod(param));
         elements.add(element);
     }
 
@@ -147,7 +147,7 @@ public class Parameters {
                     value = String.valueOf(defaultValueAttr);
                 }
                 elements.add(new Element(name, astResolvedType.getName(), "", value,
-                                         Comments.getCommentFromMethod(param)));
+                        Comments.getCommentFromMethod(param)));
             }
             resolveTypeParameter(astResolvedType, elements, "", new ArrayList<>());
 
@@ -182,7 +182,11 @@ public class Parameters {
                         resolveTypeParameter(types, elements, paramName + name + ".", typeNames);
                     }
                 } else if ("array".equalsIgnoreCase(type)) {
-                    Types types = Types.get(element.getTag()).duplicate();
+                    Types types = Types.get(element.getTag());
+                    if (types == null) {
+                        continue;
+                    }
+                    types = types.duplicate();
                     if (types.isPrimitive()) {
                         element.setName(paramName + name);
                         elements.add(element);

@@ -6,6 +6,7 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.type.Type;
+import com.iwdnb.blqs.core.Options;
 import com.iwdnb.blqs.core.common.URL;
 import com.iwdnb.blqs.core.http.HttpHeaders;
 import com.iwdnb.blqs.core.http.HttpMessage;
@@ -22,6 +23,7 @@ import com.iwdnb.blqs.core.utils.UrlIgnoreUtils;
 import com.iwdnb.blqs.core.visitor.NodeVisitor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Spring endpoints解析
@@ -118,6 +120,10 @@ public class SpringVisitor extends NodeVisitor {
      * @param message
      */
     private void visit(Type type, HttpMessage message) {
+        String typeName = Clazz.getName(type);
+        if (Options.IGNORE_TYPES.contains(typeName)|| StringUtils.isBlank(typeName)) {
+            return;
+        }
         Types astResolvedType = TypeResolvers.of(type);
         if (astResolvedType.isResolved()) {
             message.getResponse().setBody(astResolvedType.getValue());

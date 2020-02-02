@@ -18,7 +18,9 @@ import com.github.javaparser.symbolsolver.model.typesystem.ReferenceTypeImpl;
 import com.github.javaparser.utils.Pair;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Clazz {
 
     public static String getName(Type type) {
@@ -28,7 +30,7 @@ public class Clazz {
             resolvedType = type.resolve();
             return getName(resolvedType, null);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.debug("Clazz getTypeNae error,", e);
         }
         return "";
     }
@@ -152,9 +154,9 @@ public class Clazz {
     public static class Collections {
 
         public static final Set<String> IDS = Sets.newHashSet(List.class.getName(), ArrayList.class.getName(),
-                                                              LinkedList.class.getName(), Set.class.getName(),
-                                                              HashSet.class.getName(), TreeSet.class.getName(),
-                                                              Collection.class.getName(), Iterable.class.getName());
+                LinkedList.class.getName(), Set.class.getName(),
+                HashSet.class.getName(), TreeSet.class.getName(),
+                Collection.class.getName(), Iterable.class.getName());
 
         /**
          * 判断是否是基本数字类型
@@ -174,7 +176,7 @@ public class Clazz {
     public static class CharSequences {
 
         public static final Set<String> IDS = Sets.newHashSet(String.class.getName(), Character.class.getName(),
-                                                              CharSequence.class.getName());
+                CharSequence.class.getName());
 
         /**
          * 判断是否是基本字符类型
@@ -234,7 +236,7 @@ public class Clazz {
     public static class Maps {
 
         public static final Set<String> IDS = Sets.newHashSet(HashMap.class.getName(), LinkedHashMap.class.getName(),
-                                                              TreeMap.class.getName(), Map.class.getName());
+                TreeMap.class.getName(), Map.class.getName());
 
         /**
          * 判断是否是基本数字类型
@@ -254,10 +256,10 @@ public class Clazz {
     public static class Numbers {
 
         public static final Set<String> IDS = Sets.newHashSet(Byte.class.getName(), Short.class.getName(),
-                                                              Integer.class.getName(), Long.class.getName(),
-                                                              Float.class.getName(), Double.class.getName(),
-                                                              BigDecimal.class.getName(), BigInteger.class.getName(),
-                                                              AtomicInteger.class.getName(), Number.class.getName());
+                Integer.class.getName(), Long.class.getName(),
+                Float.class.getName(), Double.class.getName(),
+                BigDecimal.class.getName(), BigInteger.class.getName(),
+                AtomicInteger.class.getName(), Number.class.getName());
 
         /**
          * 判断是否是基本数字类型
