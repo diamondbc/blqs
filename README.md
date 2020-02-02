@@ -77,4 +77,4 @@ pom.xml
 ![接口文档截图](https://s2.ax1x.com/2020/01/23/1VSQm9.png "接口文档截图")
 
 # 学习各位大佬，觉得好用的话打赏下呗~~~
-![支付宝收款码](https://s2.ax1x.com/2020/01/23/1VSHpT.jpg "支付宝收款码")
+![支付宝收款码](http://config.zhituanyou.com/zfb.png "支付宝收款码")
