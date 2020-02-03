@@ -56,7 +56,7 @@ pom.xml
 * yapiSynDataUrl:yapi环境的地址,同步请求url为/api/open/import_data,所以地址写成${yapiUrl}/api/open/import_data
 * yapiToken:第一步操作中应用的token。
 * incluedArtifacts:项目中需要解析参数的jar包的artifact信息，支持模糊查询，逗号分隔。
-* urls：项目中需要拦截的url前缀,默认读取全部url，支持模糊查询,逗号分隔,示例中/api/user/**,/api/role/**,会读取/api/user/**和/api/role**的全部接口信息。
+* urls：项目中需要拦截的url前缀,默认读取全部url，支持模糊查询,逗号分隔,示例中/api/user/\*\*,/api/role/\*\*,会读取/api/user/\*\*和/api/role/\*\*的全部接口信息。
 * blqsEnable:本参数标识本插件是否可用，默认为false，不启用，可以通过配置启用或者mvn命令行加**-DblqsEnable=true**启用配置。
 * yapiBatch:本参数用于配置接口上传单次数量限制，接口超过限制会分批进行上传，默认100，一般无需设置该参数。
 
