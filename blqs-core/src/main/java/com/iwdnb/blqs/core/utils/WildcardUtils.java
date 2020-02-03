@@ -1,4 +1,4 @@
-package com.iwndb.blqs.maven;
+package com.iwdnb.blqs.core.utils;
 
 import java.util.Arrays;
 import java.util.List;

@@ -225,7 +225,7 @@ public class Options {
         return project.resolve(out).resolve(production);
     }
 
-    public void incluedArtifact(String incluedArtifact) {
+    public void incluedArtifacts(String incluedArtifact) {
         whiteJarList = new ArrayList<>();
         whiteJarList.addAll(Arrays.asList(incluedArtifact.split(",")));
         whiteJarList.add("com.alibaba:fastjson");

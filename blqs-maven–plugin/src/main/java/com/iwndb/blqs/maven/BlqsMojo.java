@@ -69,8 +69,8 @@ public class BlqsMojo extends AbstractMojo {
 
     @Parameter
     String                           css;
-    @Parameter(defaultValue = "${incluedArtifact}")
-    String                           incluedArtifact;
+    @Parameter(defaultValue = "${incluedArtifacts}")
+    String                           incluedArtifacts;
     @Parameter(defaultValue = "${yapiToken}")
     String                           yapiToken;
 
@@ -121,8 +121,8 @@ public class BlqsMojo extends AbstractMojo {
         }
         Options options = new Options();
         // 加载依赖资源jar包
-        if (incluedArtifact != null) {
-            options.incluedArtifact(incluedArtifact);
+        if (incluedArtifacts != null) {
+            options.incluedArtifacts(incluedArtifacts);
         }
         PluginDescriptor pluginDescriptor = (PluginDescriptor) this.getPluginContext().get("pluginDescriptor");
         List<Dependency> dependencyList = pluginDescriptor.getPlugin().getDependencies();

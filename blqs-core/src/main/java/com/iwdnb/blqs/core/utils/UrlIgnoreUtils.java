@@ -4,6 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.iwdnb.blqs.core.Options;
 
+import java.util.Arrays;
+
 public class UrlIgnoreUtils {
 
     public static boolean validClassUrl(String path) {
@@ -12,10 +14,8 @@ public class UrlIgnoreUtils {
             return true;
         }
         String[] urlArray = urls.split(",");
-        for (String url : urlArray) {
-            if (path.contains(url)) {
-                return true;
-            }
+        if (WildcardUtils.match(path, Arrays.asList(urlArray))) {
+            return true;
         }
         return false;
     }

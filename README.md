@@ -37,8 +37,8 @@ pom.xml
                 <configuration>
                     <yapiSynDataUrl>http://yapiUrl/api/open/import_data</yapiSynDataUrl>
                     <yapiToken>yapiToken</yapiToken>
-                    <urls>/api/user,/api/role</urls>
-                    <incluedArtifact>com.alibaba:fastjson*,com.google:**</incluedArtifact>
+                    <urls>/api/user/**,/api/role/**</urls>
+                    <incluedArtifacts>com.alibaba:fastjson*,com.google:**</incluedArtifact>
                 </configuration>
                 <executions>
                     <execution>
@@ -55,9 +55,9 @@ pom.xml
 ####参数定义：
 * yapiSynDataUrl:yapi环境的地址,同步请求url为/api/open/import_data,所以地址写成${yapiUrl}/api/open/import_data
 * yapiToken:第一步操作中应用的token。
-* incluedArtifact:项目中需要解析参数的jar包的artifact信息，支持*模糊查询，逗号分隔。
-* urls：项目中需要拦截的url前缀,逗号分隔,默认读取全部url，示例中/api/user,/api/role,会读取**/api/user****和**/api/role****的全部接口信息。
-* blqsEnable:本参数标识本插件是否可用，默认为false，不启用，可以通过配置启用或者mvn命令行加**-DblqsEnable=true**启用配置
+* incluedArtifacts:项目中需要解析参数的jar包的artifact信息，支持模糊查询，逗号分隔。
+* urls：项目中需要拦截的url前缀,默认读取全部url，支持模糊查询,逗号分隔,示例中/api/user/**,/api/role/**,会读取/api/user/**和/api/role**的全部接口信息。
+* blqsEnable:本参数标识本插件是否可用，默认为false，不启用，可以通过配置启用或者mvn命令行加**-DblqsEnable=true**启用配置。
 * yapiBatch:本参数用于配置接口上传单次数量限制，接口超过限制会分批进行上传，默认100，一般无需设置该参数。
 
 ### 第三步 编译项目，查看接口文档
