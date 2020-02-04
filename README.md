@@ -52,7 +52,7 @@ pom.xml
         </plugins>
     </build>
 ```
-####参数定义：
+#### 参数定义：
 * yapiSynDataUrl:yapi环境的地址,同步请求url为/api/open/import_data,所以地址写成${yapiUrl}/api/open/import_data
 * yapiToken:第一步操作中应用的token。
 * incluedArtifacts:项目中需要解析参数的jar包的artifact信息，支持模糊查询，逗号分隔。
