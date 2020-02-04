@@ -33,7 +33,7 @@ pom.xml
             <plugin>
                 <groupId>com.iwdnb</groupId>
                 <artifactId>blqs-maven-plugin</artifactId>
-                <version>1.0.1</version>
+                <version>1.0.2</version>
                 <configuration>
                     <yapiSynDataUrl>http://yapiUrl/api/open/import_data</yapiSynDataUrl>
                     <yapiToken>yapiToken</yapiToken>
