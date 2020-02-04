@@ -23,9 +23,9 @@ blqs---博览群书,形容形容学识渊博,与本插件的主题比较契合~~
 
 # 插件使用
 ### 第一步 创建yapi应用
-在yapi环境中创建应用，点击应用名-->设置-->token配置，获取应用的token，供后面步骤使用。
+在yapi环境中创建应用，点击应用名-->设置-->token配置，获取应用的token，供后面步骤使用。给一个本人的临时yapi服务器，用于体验。yapi体验地址:http://106.13.231.37:3000/ ,测试账号密码:test@qq.com/123456
 ### 第二步 引入maven-plugin
-本应用暂时未上传jar包到maven中央仓库，所以需要下载源码，打包编译到maven本地仓库，具体编译过程不做赘述。
+本插件已上传到maven中央仓库，也可以下载源码，打包编译到maven本地仓库，具体编译过程不做赘述。
 pom.xml
 ```xml
 <build>
@@ -33,7 +33,7 @@ pom.xml
             <plugin>
                 <groupId>com.iwdnb</groupId>
                 <artifactId>blqs-maven-plugin</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>1.0.1</version>
                 <configuration>
                     <yapiSynDataUrl>http://yapiUrl/api/open/import_data</yapiSynDataUrl>
                     <yapiToken>yapiToken</yapiToken>
