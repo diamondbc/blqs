@@ -99,7 +99,7 @@ public class BlqsMojo extends AbstractMojo {
             log.info("env:{},blqsEnable:{}", env, blqsEnable);
             // project/daily环境或者enable==true时可以执行
             if (!(MojoCommon.whiteEnvList.contains(env) || blqsEnable)) {
-                log.info("disable execute lasecar-maven-plugin,return");
+                log.info("disable execute blqs-maven-plugin,return");
                 return;
             }
             if (getPluginContext().containsKey("project")

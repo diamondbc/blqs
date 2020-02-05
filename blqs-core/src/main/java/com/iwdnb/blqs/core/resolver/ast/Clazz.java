@@ -30,7 +30,7 @@ public class Clazz {
             resolvedType = type.resolve();
             return getName(resolvedType, null);
         } catch (Exception e) {
-            log.debug("Clazz getTypeNae error,", e);
+            log.debug("Clazz getTypeNae error,", e.getLocalizedMessage());
         }
         return "";
     }
